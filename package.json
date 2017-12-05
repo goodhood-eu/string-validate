@@ -1,0 +1,40 @@
+{
+  "name": "string-validate",
+  "description": "Validates strings",
+  "author": "Nebenan.de <max@nebenan.de>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "repository": "good-hood-gmbh/string-validate",
+  "bugs": "https://github.com/good-hood-gmbh/string-validate/issues",
+  "version": "1.0.0",
+  "keywords": [
+    "validate",
+    "string validation"
+  ],
+  "main": "lib/index.js",
+  "engines": {
+    "node": "^8.x.x"
+  },
+  "scripts": {
+    "clean": "rm -rf ./lib/ || exit 1",
+    "build:babel": "NODE_ENV=production babel src --out-dir lib --copy-files",
+    "prepublishOnly": "npm run clean && npm run build:babel",
+    "lint": "eslint ./",
+    "lint:tofile": "eslint --no-color -o ./eslint-report.log ./",
+    "test": "env TZ='Europe/Berlin' mocha \"test/**/*.js\"",
+    "test:tofile": "mocha --no-colors -R spec \"test/**/*.js\" 2>&1 | tee test-report.log"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-register": "6.26.0",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-stage-3": "6.24.1",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-plugin-transform-node-env-inline": "0.2.0",
+    "eslint": "4.12.1",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-config-airbnb-base": "12.1.0",
+    "mocha": "4.0.1",
+    "chai": "4.1.2"
+  }
+}
