@@ -23,8 +23,8 @@
     "prepublishOnly": "npm run check && npm run clean && npm run build:babel",
     "lint": "eslint ./",
     "lint:tofile": "eslint --no-color -o ./eslint-report.log ./",
-    "test": "TZ='GMT' mocha \"test/**/*.js\"",
-    "test:tofile": "TZ='GMT' mocha --no-colors -R spec \"test/**/*.js\" 2>&1 | tee test-report.log"
+    "test": "npm run build:babel && TZ='GMT' mocha \"test/**/*.js\"",
+    "test:tofile": "npm run build:babel && TZ='GMT' mocha --no-colors -R spec \"test/**/*.js\" 2>&1 | tee test-report.log"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
