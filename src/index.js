@@ -6,6 +6,11 @@ const REGEX_INT = /^\d+$/;
 const REGEX_FLOAT = /^\d+(\.\d+)?$/;
 const REGEX_PHONE = /^(?=.{2,50}$)[/\-.()+\s\d–]*\d{2,}[/\-.()+\s\d–]*$/;
 
+const REGEX_LOWERCASE = /[a-z]/;
+const REGEX_UPPERCASE = /[A-Z]/;
+const REGEX_NUMBERS = /[0-9]/;
+const REGEX_SPECIAL = /[^A-Za-z0-9]/;
+
 export const isRequired = (value) => {
   if (typeof value === 'undefined' || value === null) return false;
   if (Array.isArray(value)) return value.length !== 0;
@@ -34,6 +39,12 @@ export const isEqual = (value, prop) => (value === prop);
 export const isOneOf = (value, ...props) => props.includes(value);
 
 // Common enough to be share-worthy
-export const isPassword = (value) => isLength(value, 8);
 export const isShortText = (value) => isLength(value, 2, 250);
 export const isLongText = (value) => isLength(value, 2, 5000);
+export const isPassword = (value) => (
+  isLength(value, 8)
+  && isRegex(value, REGEX_LOWERCASE)
+  && isRegex(value, REGEX_UPPERCASE)
+  && isRegex(value, REGEX_NUMBERS)
+  && isRegex(value, REGEX_SPECIAL)
+);

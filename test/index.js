@@ -130,11 +130,6 @@ describe('validations', () => {
     assert.isFalse(validations.isOneOf(4, ...items, 'Value not in array check'));
   });
 
-  it('isPassword', () => {
-    assert.isTrue(validations.isPassword('qwer1234'), 'Long password');
-    assert.isFalse(validations.isPassword('a'), 'Short password');
-  });
-
   it('isShortText', () => {
     assert.isFalse(validations.isShortText('a'), 'Too short');
     assert.isTrue(validations.isShortText('penis'), 'Ok length');
@@ -145,5 +140,22 @@ describe('validations', () => {
     assert.isFalse(validations.isLongText('a'), 'Too short');
     assert.isTrue(validations.isLongText('penis'), 'Ok length is ok');
     assert.isTrue(validations.isLongText(lorem), 'Long text ok');
+  });
+
+  it('isPassword', () => {
+    assert.isFalse(validations.isPassword('a'), 'too short');
+    assert.isFalse(validations.isPassword('aV6&sU'), 'short');
+
+    assert.isFalse(validations.isPassword('aaaaaaaaaa'), 'only lower');
+    assert.isFalse(validations.isPassword('AAAAAAAAAA'), 'only upper');
+    assert.isFalse(validations.isPassword('0000000000'), 'only digits');
+    assert.isFalse(validations.isPassword('----------'), 'only special');
+
+    assert.isFalse(validations.isPassword('ASBDHJBJ!@#!@00'), 'missing lower');
+    assert.isFalse(validations.isPassword('asdhfgjhasdgf!@#!@00'), 'missing upper');
+    assert.isFalse(validations.isPassword('asdhfgjASDS!@#!@'), 'missing digits');
+    assert.isFalse(validations.isPassword('ASBDHJBJasdasdsa00'), 'missing special');
+
+    assert.isTrue(validations.isPassword('sJ7^bH9)'), 'ok password');
   });
 });
