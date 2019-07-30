@@ -8,8 +8,8 @@ const REGEX_PHONE = /^(?=.{2,50}$)[/\-.()+\s\d–]*\d{2,}[/\-.()+\s\d–]*$/;
 
 const REGEX_LOWERCASE = /[a-z]/;
 const REGEX_UPPERCASE = /[A-Z]/;
-const REGEX_NUMBERS = /[0-9]/;
-const REGEX_SPECIAL = /[^A-Za-z0-9]/;
+const REGEX_NUMBERS = /\d/;
+const REGEX_SPECIAL = /[^A-Za-z\d]/;
 
 export const isRequired = (value) => {
   if (typeof value === 'undefined' || value === null) return false;
