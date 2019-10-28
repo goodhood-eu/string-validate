@@ -42,9 +42,9 @@ export const isOneOf = (value, ...props) => props.includes(value);
 export const isShortText = (value) => isLength(value, 2, 250);
 export const isLongText = (value) => isLength(value, 2, 5000);
 export const isPassword = (value) => (
-  isLength(value, 8)
-  && isRegex(value, REGEX_LOWERCASE)
-  && isRegex(value, REGEX_UPPERCASE)
-  && isRegex(value, REGEX_NUMBERS)
-  && isRegex(value, REGEX_SPECIAL)
+  isLength(value, 8) &&
+  isRegex(value, REGEX_LOWERCASE) &&
+  isRegex(value, REGEX_UPPERCASE) &&
+  isRegex(value, REGEX_NUMBERS) &&
+  isRegex(value, REGEX_SPECIAL)
 );
