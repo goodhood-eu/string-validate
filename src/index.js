@@ -41,10 +41,18 @@ export const isOneOf = (value, ...props) => props.includes(value);
 // Common enough to be share-worthy
 export const isShortText = (value) => isLength(value, 2, 250);
 export const isLongText = (value) => isLength(value, 2, 5000);
+
+export const isPasswordLength = (value) => isLength(value, 8);
+export const isWithLowerCase = (value) => isRegex(value, REGEX_LOWERCASE);
+export const isWithUpperCase = (value) => isRegex(value, REGEX_UPPERCASE);
+export const isWithNumbers = (value) => isRegex(value, REGEX_NUMBERS);
+export const isWithSpecialCharacters = (value) => isRegex(value, REGEX_SPECIAL);
 export const isPassword = (value) => (
-  isLength(value, 8) &&
-  isRegex(value, REGEX_LOWERCASE) &&
-  isRegex(value, REGEX_UPPERCASE) &&
-  isRegex(value, REGEX_NUMBERS) &&
-  isRegex(value, REGEX_SPECIAL)
+  [
+    isPasswordLength,
+    isWithLowerCase,
+    isWithUpperCase,
+    isWithNumbers,
+    isWithSpecialCharacters,
+  ].every((fn) => fn(value))
 );

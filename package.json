@@ -6,7 +6,7 @@
   "readmeFilename": "README.md",
   "repository": "good-hood-gmbh/string-validate",
   "bugs": "https://github.com/good-hood-gmbh/string-validate/issues",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "keywords": [
     "validate",
     "string validation"
@@ -26,8 +26,8 @@
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
-    "@babel/plugin-proposal-json-strings": "^7.2.0",
-    "@babel/plugin-transform-strict-mode": "^7.2.0",
+    "@babel/plugin-proposal-json-strings": "^7.8.3",
+    "@babel/plugin-transform-strict-mode": "^7.8.3",
     "@babel/preset-env": "^7.6.3",
     "babel-plugin-add-module-exports": "^1.0.2",
     "chai": "^4.2.0",

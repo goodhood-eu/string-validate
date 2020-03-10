@@ -142,6 +142,49 @@ describe('validations', () => {
     assert.isTrue(validations.isLongText(lorem), 'Long text ok');
   });
 
+  it('isPasswordLength', () => {
+    assert.isFalse(validations.isPasswordLength('a'), 'too short');
+    assert.isFalse(validations.isPasswordLength('aV6&sU'), 'short');
+
+    assert.isTrue(validations.isPasswordLength('sJ7^bH9)'), 'ok password');
+  });
+
+  it('isWithLowerCase', () => {
+    assert.isTrue(validations.isWithLowerCase('aaaaaaaaaa'), 'only lower');
+    assert.isFalse(validations.isWithLowerCase('AAAAAAAAAA'), 'only upper');
+    assert.isFalse(validations.isWithLowerCase('0000000000'), 'only digits');
+    assert.isFalse(validations.isWithLowerCase('----------'), 'only special');
+
+    assert.isTrue(validations.isWithLowerCase('sJ7^bH9)'), 'ok password');
+  });
+
+  it('isWithUpperCase', () => {
+    assert.isFalse(validations.isWithUpperCase('aaaaaaaaaa'), 'only lower');
+    assert.isTrue(validations.isWithUpperCase('AAAAAAAAAA'), 'only upper');
+    assert.isFalse(validations.isWithUpperCase('0000000000'), 'only digits');
+    assert.isFalse(validations.isWithUpperCase('----------'), 'only special');
+
+    assert.isTrue(validations.isWithUpperCase('sJ7^bH9)'), 'ok password');
+  });
+
+  it('isWithNumbers', () => {
+    assert.isFalse(validations.isWithNumbers('aaaaaaaaaa'), 'only lower');
+    assert.isFalse(validations.isWithNumbers('AAAAAAAAAA'), 'only upper');
+    assert.isTrue(validations.isWithNumbers('0000000000'), 'only digits');
+    assert.isFalse(validations.isWithNumbers('----------'), 'only special');
+
+    assert.isTrue(validations.isWithNumbers('sJ7^bH9)'), 'ok password');
+  });
+
+  it('isWithSpecialCharacters', () => {
+    assert.isFalse(validations.isWithSpecialCharacters('aaaaaaaaaa'), 'only lower');
+    assert.isFalse(validations.isWithSpecialCharacters('AAAAAAAAAA'), 'only upper');
+    assert.isFalse(validations.isWithSpecialCharacters('0000000000'), 'only digits');
+    assert.isTrue(validations.isWithSpecialCharacters('----------'), 'only special');
+
+    assert.isTrue(validations.isWithSpecialCharacters('sJ7^bH9)'), 'ok password');
+  });
+
   it('isPassword', () => {
     assert.isFalse(validations.isPassword('a'), 'too short');
     assert.isFalse(validations.isPassword('aV6&sU'), 'short');
