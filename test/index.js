@@ -63,6 +63,7 @@ describe('validations', () => {
       'a.example.com',
       '@',
       'a@b',
+      'a@email.c',
     ];
 
     truthy.forEach((item) => assert.isTrue(validations.isEmail(item), `Passed for ${item}`));
