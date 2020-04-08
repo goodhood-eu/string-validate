@@ -6,10 +6,10 @@ const REGEX_INT = /^\d+$/;
 const REGEX_FLOAT = /^\d+(\.\d+)?$/;
 const REGEX_PHONE = /^(?=.{2,50}$)[/\-.()+\s\d–]*\d{2,}[/\-.()+\s\d–]*$/;
 
-const REGEX_LOWERCASE = /[a-z]/;
-const REGEX_UPPERCASE = /[A-Z]/;
-const REGEX_NUMBERS = /\d/;
-const REGEX_SPECIAL = /[^A-Za-z\d]/;
+const REGEX_LOWERCASE = /[a-z]+/;
+const REGEX_UPPERCASE = /[A-Z]+/;
+const REGEX_NUMBERS = /\d+/;
+const REGEX_SPECIAL = /[^A-Za-z\d]+/;
 
 export const isRequired = (value) => {
   if (typeof value === 'undefined' || value === null) return false;
@@ -42,17 +42,17 @@ export const isOneOf = (value, ...props) => props.includes(value);
 export const isShortText = (value) => isLength(value, 2, 250);
 export const isLongText = (value) => isLength(value, 2, 5000);
 
-export const isPasswordLength = (value) => isLength(value, 8);
-export const isWithLowerCase = (value) => isRegex(value, REGEX_LOWERCASE);
-export const isWithUpperCase = (value) => isRegex(value, REGEX_UPPERCASE);
-export const isWithNumbers = (value) => isRegex(value, REGEX_NUMBERS);
-export const isWithSpecialCharacters = (value) => isRegex(value, REGEX_SPECIAL);
+export const hasPasswordLength = (value) => isLength(value, 8);
+export const hasLowerCase = (value) => isRegex(value, REGEX_LOWERCASE);
+export const hasUpperCase = (value) => isRegex(value, REGEX_UPPERCASE);
+export const hasNumbers = (value) => isRegex(value, REGEX_NUMBERS);
+export const hasSpecialCharacters = (value) => isRegex(value, REGEX_SPECIAL);
 export const isPassword = (value) => (
   [
-    isPasswordLength,
-    isWithLowerCase,
-    isWithUpperCase,
-    isWithNumbers,
-    isWithSpecialCharacters,
+    hasPasswordLength,
+    hasLowerCase,
+    hasUpperCase,
+    hasNumbers,
+    hasSpecialCharacters,
   ].every((fn) => fn(value))
 );

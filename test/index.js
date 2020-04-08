@@ -143,47 +143,47 @@ describe('validations', () => {
     assert.isTrue(validations.isLongText(lorem), 'Long text ok');
   });
 
-  it('isPasswordLength', () => {
-    assert.isFalse(validations.isPasswordLength('a'), 'too short');
-    assert.isFalse(validations.isPasswordLength('aV6&sU'), 'short');
+  it('hasPasswordLength', () => {
+    assert.isFalse(validations.hasPasswordLength('a'), 'too short');
+    assert.isFalse(validations.hasPasswordLength('aV6&sU'), 'short');
 
-    assert.isTrue(validations.isPasswordLength('sJ7^bH9)'), 'ok password');
+    assert.isTrue(validations.hasPasswordLength('sJ7^bH9)'), 'ok password');
   });
 
-  it('isWithLowerCase', () => {
-    assert.isTrue(validations.isWithLowerCase('aaaaaaaaaa'), 'only lower');
-    assert.isFalse(validations.isWithLowerCase('AAAAAAAAAA'), 'only upper');
-    assert.isFalse(validations.isWithLowerCase('0000000000'), 'only digits');
-    assert.isFalse(validations.isWithLowerCase('----------'), 'only special');
+  it('hasLowerCase', () => {
+    assert.isTrue(validations.hasLowerCase('aaaaaaaaaa'), 'only lower');
+    assert.isFalse(validations.hasLowerCase('AAAAAAAAAA'), 'only upper');
+    assert.isFalse(validations.hasLowerCase('0000000000'), 'only digits');
+    assert.isFalse(validations.hasLowerCase('----------'), 'only special');
 
-    assert.isTrue(validations.isWithLowerCase('sJ7^bH9)'), 'ok password');
+    assert.isTrue(validations.hasLowerCase('sJ7^bH9)'), 'ok password');
   });
 
-  it('isWithUpperCase', () => {
-    assert.isFalse(validations.isWithUpperCase('aaaaaaaaaa'), 'only lower');
-    assert.isTrue(validations.isWithUpperCase('AAAAAAAAAA'), 'only upper');
-    assert.isFalse(validations.isWithUpperCase('0000000000'), 'only digits');
-    assert.isFalse(validations.isWithUpperCase('----------'), 'only special');
+  it('hasUpperCase', () => {
+    assert.isFalse(validations.hasUpperCase('aaaaaaaaaa'), 'only lower');
+    assert.isTrue(validations.hasUpperCase('AAAAAAAAAA'), 'only upper');
+    assert.isFalse(validations.hasUpperCase('0000000000'), 'only digits');
+    assert.isFalse(validations.hasUpperCase('----------'), 'only special');
 
-    assert.isTrue(validations.isWithUpperCase('sJ7^bH9)'), 'ok password');
+    assert.isTrue(validations.hasUpperCase('sJ7^bH9)'), 'ok password');
   });
 
-  it('isWithNumbers', () => {
-    assert.isFalse(validations.isWithNumbers('aaaaaaaaaa'), 'only lower');
-    assert.isFalse(validations.isWithNumbers('AAAAAAAAAA'), 'only upper');
-    assert.isTrue(validations.isWithNumbers('0000000000'), 'only digits');
-    assert.isFalse(validations.isWithNumbers('----------'), 'only special');
+  it('hasNumbers', () => {
+    assert.isFalse(validations.hasNumbers('aaaaaaaaaa'), 'only lower');
+    assert.isFalse(validations.hasNumbers('AAAAAAAAAA'), 'only upper');
+    assert.isTrue(validations.hasNumbers('0000000000'), 'only digits');
+    assert.isFalse(validations.hasNumbers('----------'), 'only special');
 
-    assert.isTrue(validations.isWithNumbers('sJ7^bH9)'), 'ok password');
+    assert.isTrue(validations.hasNumbers('sJ7^bH9)'), 'ok password');
   });
 
-  it('isWithSpecialCharacters', () => {
-    assert.isFalse(validations.isWithSpecialCharacters('aaaaaaaaaa'), 'only lower');
-    assert.isFalse(validations.isWithSpecialCharacters('AAAAAAAAAA'), 'only upper');
-    assert.isFalse(validations.isWithSpecialCharacters('0000000000'), 'only digits');
-    assert.isTrue(validations.isWithSpecialCharacters('----------'), 'only special');
+  it('hasSpecialCharacters', () => {
+    assert.isFalse(validations.hasSpecialCharacters('aaaaaaaaaa'), 'only lower');
+    assert.isFalse(validations.hasSpecialCharacters('AAAAAAAAAA'), 'only upper');
+    assert.isFalse(validations.hasSpecialCharacters('0000000000'), 'only digits');
+    assert.isTrue(validations.hasSpecialCharacters('----------'), 'only special');
 
-    assert.isTrue(validations.isWithSpecialCharacters('sJ7^bH9)'), 'ok password');
+    assert.isTrue(validations.hasSpecialCharacters('sJ7^bH9)'), 'ok password');
   });
 
   it('isPassword', () => {
