@@ -10,9 +10,13 @@ const REGEX_LOWERCASE = /[a-z]+/;
 const REGEX_UPPERCASE = /[A-Z]+/;
 const REGEX_NUMBERS = /\d+/;
 const REGEX_SPECIAL = /[^A-Za-z\d]+/;
+const REGEX_TIME = /^\d{1,2}:\d{1,2}$/;
+
+const isEmpty = (value) => typeof value === 'undefined' || value === null;
+const timeToDate = (time) => (new Date()).setHours(...time.split(':'));
 
 export const isRequired = (value) => {
-  if (typeof value === 'undefined' || value === null) return false;
+  if (isEmpty(value)) return false;
   if (Array.isArray(value)) return value.length !== 0;
 
   switch (typeof (value)) {
@@ -25,7 +29,7 @@ export const isRequired = (value) => {
 };
 
 export const isLength = (value = '', min = 0, max = Infinity) => {
-  if (typeof value === 'undefined' || value === null) return false;
+  if (isEmpty(value)) return false;
   const length = Array.isArray(value) ? value.length : unicodeLength(value);
   return (max >= length) && (length >= min);
 };
@@ -55,4 +59,10 @@ export const isPassword = (value) => (
     hasNumbers,
     hasSpecialCharacters,
   ].every((fn) => fn(value))
+);
+
+export const isTime = (value, min = '00:00', max = '23:59') => (
+  isRegex(value, REGEX_TIME)
+  && timeToDate(value) >= timeToDate(min)
+  && timeToDate(value) <= timeToDate(max)
 );

@@ -202,4 +202,41 @@ describe('validations', () => {
 
     assert.isTrue(validations.isPassword('sJ7^bH9)'), 'ok password');
   });
+
+  it('isTime', () => {
+    const truthy = [
+      '12:24',
+      '23:59',
+      '00:00',
+      '1:12',
+      '1:1',
+      '12:1',
+      '01:06',
+      '1:05',
+      '06:1',
+    ];
+
+    const falsy = [
+      '123:3',
+      '89:12',
+      '24:00',
+      '-00:00',
+      'asd#$',
+      '12:4g',
+    ];
+
+    truthy.forEach((value) => {
+      assert.isTrue(validations.isTime(value), `Valid value - ${value}`);
+    });
+
+    falsy.forEach((value) => {
+      assert.isFalse(validations.isTime(value), `Invalid value - ${value}`);
+    });
+
+    assert.isFalse(validations.isTime('12:23', '13:00'), 'respect min date');
+    assert.isTrue(validations.isTime('12:23', '11:00'), 'respect min date');
+
+    assert.isFalse(validations.isTime('17:21', '00:00', '14:00'), 'respect max date');
+    assert.isTrue(validations.isTime('12:23', '00:00', '14:00'), 'respect max date');
+  });
 });
