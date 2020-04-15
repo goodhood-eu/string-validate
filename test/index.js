@@ -208,15 +208,18 @@ describe('validations', () => {
       '12:24',
       '23:59',
       '00:00',
-      '1:12',
-      '1:1',
-      '12:1',
+      '01:12',
+      '01:01',
+      '12:01',
       '01:06',
-      '1:05',
-      '06:1',
+      '06:01',
     ];
 
     const falsy = [
+      '1:12',
+      '1:1',
+      '12:1',
+      '1:05',
       '123:3',
       '89:12',
       '24:00',
@@ -238,5 +241,29 @@ describe('validations', () => {
 
     assert.isFalse(validations.isTime('17:21', '00:00', '14:00'), 'respect max date');
     assert.isTrue(validations.isTime('12:23', '00:00', '14:00'), 'respect max date');
+  });
+
+  it('isEmpty', () => {
+    const truthy = [
+      undefined,
+      null,
+      {}.a,
+    ];
+
+    const falsy = [
+      0,
+      {},
+      '',
+      'hello',
+      function() {},
+    ];
+
+    truthy.forEach((value) => {
+      assert.isTrue(validations.isEmpty(value), `Valid value - ${value}`);
+    });
+
+    falsy.forEach((value) => {
+      assert.isFalse(validations.isEmpty(value), `Invalid value - ${value}`);
+    });
   });
 });
