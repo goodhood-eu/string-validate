@@ -1,5 +1,5 @@
 const { assert } = require('chai');
-const { unicodeLength } = require('../lib/utils');
+const { unicodeLength, timeToInt } = require('../lib/utils');
 
 const UNICODE = '💩';
 
@@ -15,5 +15,11 @@ describe('utils', () => {
     assert.equal(unicodeLength(UNICODE), 1, 'single emoji length');
     assert.equal(unicodeLength(short), expectedShort, 'simple ascii string');
     assert.equal(unicodeLength(complex), expectedComplex, 'complex unicode string');
+  });
+
+  it('timeToInt', () => {
+    assert.equal(timeToInt('12:14'), 1214, 'parse hours and minutes');
+    assert.equal(timeToInt('01:10'), 110, 'omit prefixed zeros');
+    assert.equal(timeToInt('00:01'), 1, 'only minutes');
   });
 });

@@ -1,5 +1,5 @@
 /* eslint no-control-regex: "off" */
-import { unicodeLength } from './utils';
+import { unicodeLength, timeToInt } from './utils';
 
 const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const REGEX_INT = /^\d+$/;
@@ -10,9 +10,12 @@ const REGEX_LOWERCASE = /[a-z]+/;
 const REGEX_UPPERCASE = /[A-Z]+/;
 const REGEX_NUMBERS = /\d+/;
 const REGEX_SPECIAL = /[^A-Za-z\d]+/;
+const REGEX_TIME = /^\d{2}:\d{2}$/;
+
+export const isEmpty = (value) => typeof value === 'undefined' || value === null;
 
 export const isRequired = (value) => {
-  if (typeof value === 'undefined' || value === null) return false;
+  if (isEmpty(value)) return false;
   if (Array.isArray(value)) return value.length !== 0;
 
   switch (typeof (value)) {
@@ -25,7 +28,7 @@ export const isRequired = (value) => {
 };
 
 export const isLength = (value = '', min = 0, max = Infinity) => {
-  if (typeof value === 'undefined' || value === null) return false;
+  if (isEmpty(value)) return false;
   const length = Array.isArray(value) ? value.length : unicodeLength(value);
   return (max >= length) && (length >= min);
 };
@@ -56,3 +59,10 @@ export const isPassword = (value) => (
     hasSpecialCharacters,
   ].every((fn) => fn(value))
 );
+
+export const isTime = (value, min = '00:00', max = '23:59') => {
+  if (!isRegex(value, REGEX_TIME)) return false;
+
+  const valueInt = timeToInt(value);
+  return valueInt >= timeToInt(min) && valueInt <= timeToInt(max);
+};
