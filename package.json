@@ -24,13 +24,13 @@
     "test:tofile": "npm run build:babel && TZ='GMT' mocha --no-colors -R spec \"test/**/*.js\" 2>&1 | tee test-report.log"
   },
   "devDependencies": {
-    "browserslist-config-nebenan": "^1.0.0-beta.0",
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-json-strings": "^7.12.1",
     "@babel/plugin-transform-strict-mode": "^7.12.1",
     "@babel/preset-env": "^7.9.5",
     "babel-plugin-add-module-exports": "^1.0.4",
+    "browserslist-config-nebenan": "^1.0.0",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
     "eslint-config-nebenan-base": "^1.6.0",
