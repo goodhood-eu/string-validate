@@ -6,7 +6,11 @@
   "readmeFilename": "README.md",
   "repository": "good-hood-gmbh/string-validate",
   "bugs": "https://github.com/good-hood-gmbh/string-validate/issues",
-  "version": "3.4.0",
+  "version": "3.5.0",
+  "files": [
+    "lib/*.js",
+    "lib/*/*.js"
+  ],
   "keywords": [
     "validate",
     "string validation"
@@ -25,16 +29,15 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
-    "@babel/core": "^7.9.0",
+    "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-json-strings": "^7.12.1",
     "@babel/plugin-transform-strict-mode": "^7.12.1",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-env": "^7.12.1",
     "babel-plugin-add-module-exports": "^1.0.4",
     "browserslist-config-nebenan": "^1.0.0",
     "chai": "^4.2.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.13.0",
     "eslint-config-nebenan-base": "^1.6.0",
-    "mocha": "^7.1.1"
-  },
-  "dependencies": {}
+    "mocha": "^8.2.1"
+  }
 }
