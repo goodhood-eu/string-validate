@@ -6,7 +6,7 @@
   "readmeFilename": "README.md",
   "repository": "good-hood-gmbh/string-validate",
   "bugs": "https://github.com/good-hood-gmbh/string-validate/issues",
-  "version": "3.5.0",
+  "version": "3.5.1",
   "files": [
     "lib/*.js",
     "lib/*/*.js"
