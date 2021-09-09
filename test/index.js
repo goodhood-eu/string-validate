@@ -95,6 +95,34 @@ describe('validations', () => {
     falsy.forEach((item) => assert.isFalse(validations.isPhone(item), `Failed for ${item}`));
   });
 
+  it('isUrl', () => {
+    const truthy = [
+      'http://nebenan.de',
+      'https://nebenan.de',
+      'https://www.nebenan.de',
+      'https://www.nebenan.com',
+      'nebenan.de',
+      'www.nebenan.de',
+      'nebenan.de/about',
+      'org.nebenan.de',
+      'org.nebenan-1.de',
+      'nebenan.de/more/than/one/path',
+    ];
+
+    const falsy = [
+      'http://nebenan.d',
+      'http://nebenande',
+      'http://nebenan. de',
+      'https:// nebenan.de',
+      'www.neben@an.de',
+      'https//nebenan.de',
+      'https:/nebenan.de',
+    ];
+
+    truthy.forEach((item) => assert.isTrue(validations.isUrl(item), `Passed for ${item}`));
+    falsy.forEach((item) => assert.isFalse(validations.isUrl(item), `Failed for ${item}`));
+  });
+
   it('isInt', () => {
     assert.isTrue(validations.isInt('123'), 'integer is ok');
     assert.isFalse(validations.isInt('123.45'), 'float is not ok');
