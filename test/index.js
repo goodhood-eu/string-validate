@@ -96,31 +96,22 @@ describe('validations', () => {
   });
 
   it('isUrl', () => {
-    const truthy = [
-      'http://nebenan.de',
-      'https://nebenan.de',
-      'https://www.nebenan.de',
-      'https://www.nebenan.com',
-      'nebenan.de',
-      'www.nebenan.de',
-      'nebenan.de/about',
-      'org.nebenan.de',
-      'org.nebenan-1.de',
-      'nebenan.de/more/than/one/path',
-    ];
-
-    const falsy = [
-      'http://nebenan.d',
-      'http://nebenande',
-      'http://nebenan. de',
-      'https:// nebenan.de',
-      'www.neben@an.de',
-      'https//nebenan.de',
-      'https:/nebenan.de',
-    ];
-
-    truthy.forEach((item) => assert.isTrue(validations.isUrl(item), `Passed for ${item}`));
-    falsy.forEach((item) => assert.isFalse(validations.isUrl(item), `Failed for ${item}`));
+    assert.isTrue(validations.isUrl('http://nebenan.de'), 'url is ok');
+    assert.isTrue(validations.isUrl('https://www.nebenan.com'), 'url is ok');
+    assert.isTrue(validations.isUrl('nebenan.de'), 'url is ok');
+    assert.isTrue(validations.isUrl('www.nebenan-1.de'), 'url is ok');
+    assert.isTrue(validations.isUrl('nebenan.de/about'), 'url is ok');
+    assert.isTrue(validations.isUrl('org.nebenan.de'), 'url is ok');
+    assert.isTrue(validations.isUrl('nebenan.de/more/than/one/path'), 'url is ok');
+    
+    assert.isFalse(validations.isUrl(''), 'url is not ok');
+    assert.isFalse(validations.isUrl('http://nebenan.d'), 'url is not ok');
+    assert.isFalse(validations.isUrl('http://nebenande'), 'url is not ok');
+    assert.isFalse(validations.isUrl('http://nebenan. de'), 'url is not ok');
+    assert.isFalse(validations.isUrl('https:// nebenan.de'), 'url is not ok');
+    assert.isFalse(validations.isUrl('https//nebenan.de'), 'url is not ok');
+    assert.isFalse(validations.isUrl('https:/nebenan.de'), 'url is not ok');
+    assert.isFalse(validations.isUrl('www.neben@an.de'), 'url is not ok');
   });
 
   it('isInt', () => {
