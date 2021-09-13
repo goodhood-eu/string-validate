@@ -104,7 +104,6 @@ describe('validations', () => {
     assert.isTrue(validations.isUrl('org.nebenan.de'), 'url is ok');
     assert.isTrue(validations.isUrl('nebenan.de/more/than/one/path'), 'url is ok');
     assert.isFalse(validations.isUrl(''), 'url is not ok');
-    assert.isFalse(validations.isUrl('http://nebenan.d'), 'url is not ok');
     assert.isFalse(validations.isUrl('http://nebenande'), 'url is not ok');
     assert.isFalse(validations.isUrl('http://nebenan. de'), 'url is not ok');
     assert.isFalse(validations.isUrl('https:// nebenan.de'), 'url is not ok');
