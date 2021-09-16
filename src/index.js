@@ -5,6 +5,7 @@ const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))
 const REGEX_INT = /^\d+$/;
 const REGEX_FLOAT = /^\d+(\.\d+)?$/;
 const REGEX_PHONE = /^(?=.{2,50}$)[/\-.()+\s\d–]*\d{2,}[/\-.()+\s\d–]*$/;
+const REGEX_URL = /^(?:https?:\/\/)?((?:[^\u0000-\u007F]|[\w-])+\.(?:(?:[^\u0000-\u007F]|[\w-]){2,}\.)*(?:[^\u0000-\u007F]|[a-zA-Z])+)(?::\d+)?(\/(?:(?:[^\u0000-\u007F]|[\w/.,'"@+=!:;=%()-])+)?(?:\.(?:[^\u0000-\u007F]|[\w-])+)?)?((?:\?|#)\S+)?$/;
 
 const REGEX_LOWERCASE = /[a-z]+/;
 const REGEX_UPPERCASE = /[A-Z]+/;
@@ -36,6 +37,7 @@ export const isLength = (value = '', min = 0, max = Infinity) => {
 export const isRegex = (value, regex) => regex.test(value);
 export const isEmail = (value) => isRegex(value, REGEX_EMAIL);
 export const isPhone = (value) => isRegex(value, REGEX_PHONE);
+export const isUrl = (value) => isRegex(value, REGEX_URL);
 export const isInt = (value) => isRegex(value, REGEX_INT);
 export const isNumber = (value) => isRegex(value, REGEX_FLOAT);
 export const isEqual = (value, prop) => (value === prop);

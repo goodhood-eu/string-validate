@@ -95,6 +95,23 @@ describe('validations', () => {
     falsy.forEach((item) => assert.isFalse(validations.isPhone(item), `Failed for ${item}`));
   });
 
+  it('isUrl', () => {
+    assert.isTrue(validations.isUrl('http://nebenan.de'), 'url is ok');
+    assert.isTrue(validations.isUrl('https://www.nebenan.com'), 'url is ok');
+    assert.isTrue(validations.isUrl('nebenan.de'), 'url is ok');
+    assert.isTrue(validations.isUrl('www.nebenan-1.de'), 'url is ok');
+    assert.isTrue(validations.isUrl('nebenan.de/about'), 'url is ok');
+    assert.isTrue(validations.isUrl('org.nebenan.de'), 'url is ok');
+    assert.isTrue(validations.isUrl('nebenan.de/more/than/one/path'), 'url is ok');
+    assert.isFalse(validations.isUrl(''), 'url is not ok');
+    assert.isFalse(validations.isUrl('http://nebenande'), 'url is not ok');
+    assert.isFalse(validations.isUrl('http://nebenan. de'), 'url is not ok');
+    assert.isFalse(validations.isUrl('https:// nebenan.de'), 'url is not ok');
+    assert.isFalse(validations.isUrl('https//nebenan.de'), 'url is not ok');
+    assert.isFalse(validations.isUrl('https:/nebenan.de'), 'url is not ok');
+    assert.isFalse(validations.isUrl('www.neben@an.de'), 'url is not ok');
+  });
+
   it('isInt', () => {
     assert.isTrue(validations.isInt('123'), 'integer is ok');
     assert.isFalse(validations.isInt('123.45'), 'float is not ok');
