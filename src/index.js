@@ -36,6 +36,7 @@ export const isLength = (value = '', min = 0, max = Infinity) => {
 
 export const isRegex = (value, regex) => regex.test(value);
 export const isEmail = (value) => isRegex(value, REGEX_EMAIL);
+export const isMostLikelyEmail = (value) => value && value.includes('.') && value.includes('@') && isLength(value, 7);
 export const isPhone = (value) => isRegex(value, REGEX_PHONE);
 export const isUrl = (value) => isRegex(value, REGEX_URL);
 export const isInt = (value) => isRegex(value, REGEX_INT);

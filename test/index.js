@@ -70,6 +70,27 @@ describe('validations', () => {
     falsy.forEach((item) => assert.isFalse(validations.isEmail(item), `Failed for ${item}`));
   });
 
+  it('isMostLikelyEmail', () => {
+    const truthy = [
+      'a@example.com',
+      'a+b@example.com',
+      'a.b+c@example.com',
+      'a_b.c+d@example.com',
+      'asdasdasd@.',
+    ];
+
+    const falsy = [
+      'a.example.com',
+      '@',
+      'a@b',
+      'a@b.de',
+      'a@emailasdc',
+    ];
+
+    truthy.forEach((item) => assert.isTrue(validations.isMostLikelyEmail(item), `Passed for ${item}`));
+    falsy.forEach((item) => assert.isFalse(validations.isMostLikelyEmail(item), `Failed for ${item}`));
+  });
+
   it('isPhone', () => {
     const truthy = [
       '+49 157 123 45678',
