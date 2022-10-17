@@ -1,5 +1,4 @@
-/* eslint no-control-regex: "off" */
-import { unicodeLength, timeToInt } from './utils';
+import { unicodeLength, timeToInt } from './utils.js';
 
 const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const REGEX_INT = /^\d+$/;
