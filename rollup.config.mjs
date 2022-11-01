@@ -19,7 +19,7 @@ export default [
     plugins: [
       commonjs(),
       babel({ babelHelpers: 'runtime' }),
-      nodeResolve(({ preferBuiltins: true })),
+      nodeResolve(),
     ],
   },
 ];
