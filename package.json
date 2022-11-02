@@ -6,7 +6,7 @@
   "type": "module",
   "repository": "good-hood-gmbh/string-validate",
   "bugs": "https://github.com/good-hood-gmbh/string-validate/issues",
-  "version": "3.8.0-beta.0",
+  "version": "3.8.0",
   "files": [
     "lib"
   ],
