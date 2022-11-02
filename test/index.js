@@ -1,5 +1,5 @@
-const { assert } = require('chai');
-const validations = require('../lib');
+import { assert } from 'chai';
+import * as validations from '../src/index.js';
 
 const lorem = `
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt

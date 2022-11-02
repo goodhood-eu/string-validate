@@ -1,5 +1,5 @@
-const { assert } = require('chai');
-const { unicodeLength, timeToInt } = require('../lib/utils');
+import { assert } from 'chai';
+import { unicodeLength, timeToInt } from '../src/utils.js';
 
 const UNICODE = '💩';
 

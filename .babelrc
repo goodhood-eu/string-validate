@@ -1,10 +1,8 @@
 {
-  "presets": [
-    "@babel/preset-env"
-  ],
+  "presets": [["@babel/env", { "modules": false }]],
   "plugins": [
     ["add-module-exports", { "addDefaultProperty": true }],
     "@babel/plugin-transform-strict-mode",
-    "@babel/plugin-proposal-json-strings"
+    "@babel/plugin-transform-runtime"
   ]
 }
