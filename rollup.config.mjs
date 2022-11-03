@@ -7,11 +7,11 @@ export default [
     input: ['src/index.js'],
     output: [
       {
-        file: 'lib/index.esm.js',
+        file: 'lib/index.js',
         format: 'es'
       },
       {
-        file: 'lib/index.js',
+        file: 'lib/index.cjs',
         format: 'cjs',
         exports: 'named',
       },

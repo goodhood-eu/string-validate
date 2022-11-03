@@ -6,7 +6,7 @@
   "type": "module",
   "repository": "good-hood-gmbh/string-validate",
   "bugs": "https://github.com/good-hood-gmbh/string-validate/issues",
-  "version": "3.8.0",
+  "version": "3.8.1",
   "files": [
     "lib"
   ],
@@ -14,8 +14,8 @@
     "validate",
     "string validation"
   ],
-  "module": "lib/index.esm.js",
-  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "main": "lib/index.cjs",
   "scripts": {
     "build": "NODE_ENV=production rollup -c",
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
