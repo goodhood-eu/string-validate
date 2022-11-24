@@ -1,20 +1,30 @@
 {
-  "extends": "nebenan-base",
-  "overrides": [{
-    "files": ["**/test/*.js"],
-    "env": {
-      "mocha": true
-    },
-    "rules": {
-      "no-unused-expressions": "off"
-    }
-  }],
-  "rules": {
-    "import/extensions": [
-      "error",
-      {
-        "js": "ignorePackages"
+  "extends": "nebenan",
+  "overrides": [
+    {
+      "files": [
+        "test/**/*"
+      ],
+      "env": {
+        "mocha": true
+      },
+      "rules": {
+        "no-unused-expressions": "off"
       }
-    ]
-  }
+    },
+    {
+      "files": [
+        "**/*.ts",
+        "**/*.tsx"
+      ],
+      "extends": [
+        "nebenan/typescript"
+      ],
+      "parserOptions": {
+        "project": [
+          "./tsconfig.json"
+        ]
+      }
+    }
+  ]
 }

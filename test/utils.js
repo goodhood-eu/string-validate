@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import { unicodeLength, timeToInt } from '../src/utils.js';
+import { unicodeLength, timeToInt } from '../src/utils';
 
 const UNICODE = '💩';
 
