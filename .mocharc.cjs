@@ -4,4 +4,12 @@ module.exports = {
   ui: 'bdd',
   reporter: 'nyan',
   timeout: 2000,
+  exclude: [
+    'node_modules/**',
+  ],
+  extension: ['ts'],
+  spec: [
+    "**/*.test.ts"
+  ],
+  require: 'ts-node/register'
 };

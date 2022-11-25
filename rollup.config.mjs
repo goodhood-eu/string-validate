@@ -8,7 +8,7 @@ export default [
     input: ['src/index.ts'],
     output: [
       {
-        file: 'lib/index.ts',
+        file: 'lib/index.js',
         format: 'es'
       },
       {
