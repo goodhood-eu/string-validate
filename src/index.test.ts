@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import * as validations from '../src/index';
+import * as validations from './index';
 
 const lorem = `
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
@@ -47,8 +47,8 @@ describe('validations', () => {
     const regexOk = /abc/;
     const regexFail = /def/;
 
-    assert.isTrue(validations.isRegex(item, regexOk, 'Truthy regex'));
-    assert.isFalse(validations.isRegex(item, regexFail, 'Falsy regex'));
+    assert.isTrue(validations.isRegex(item, regexOk), 'Truthy regex');
+    assert.isFalse(validations.isRegex(item, regexFail), 'Falsy regex');
   });
 
   it('isEmail', () => {
@@ -285,7 +285,6 @@ describe('validations', () => {
     const truthy = [
       undefined,
       null,
-      {}.a,
     ];
 
     const falsy = [

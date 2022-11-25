@@ -1,7 +1,7 @@
 import { babel } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 
 export default [
   {
@@ -18,9 +18,9 @@ export default [
       },
     ],
     plugins: [
-      nodeResolve(),
-      babel({ babelHelpers: 'runtime' }),
-      typescript(),
+      nodeResolve({ preferBuiltins: true }),
+      babel({ babelHelpers: 'runtime', exclude: /^(.+\/)?node_modules\/.+$/ }),
+      typescript({ useTsconfigDeclarationDir: true }),
       commonjs({ extensions: ['.js', '.ts'] }),
     ],
   },

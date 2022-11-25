@@ -42,7 +42,7 @@ export const isPhone = (value: string): boolean => isRegex(value, REGEX_PHONE);
 export const isUrl = (value: string): boolean => isRegex(value, REGEX_URL);
 export const isInt = (value: string): boolean => isRegex(value, REGEX_INT);
 export const isNumber = (value: string): boolean => isRegex(value, REGEX_FLOAT);
-export const isEqual = (value: string, prop: string): boolean => (value === prop);
+export const isEqual = (value: any, prop: any): boolean => (value === prop);
 export const isOneOf = (
   value: (string | number),
   ...props: (string | number)[]

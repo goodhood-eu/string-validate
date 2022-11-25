@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "target": "es2016",
-    "module": "CommonJS",
+    "module": "esnext",
+    "allowJs": true,
+    "sourceMap": true,
     "removeComments": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -11,16 +13,17 @@
     "noUnusedParameters": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
+    "declaration": true,
+    "outDir": "lib",
+    "declarationDir": "lib/types",
     "paths": {
       "@/*": ["./*"]
     }
   },
-  "include": [
-    "src/**/*"
-  ],
   "exclude": [
     "**/node_modules",
     "**/.*/",
-    "**/lib"
+    "**/lib",
+    "test/**"
   ]
 }
