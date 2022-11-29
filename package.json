@@ -25,8 +25,8 @@
     "lint:fix": "eslint --fix ./",
     "lint:tofile": "eslint --no-color -o ./eslint-report.log ./",
     "lint:typescript": "tsc --noEmit",
-    "test": "mocha",
-    "test:tofile": "npm run build && TZ='GMT' TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha --no-colors -R spec \"test/**/*.js\" 2>&1 | tee test-report.log"
+    "test": "TZ='GMT' mocha",
+    "test:tofile": "npm run build && TZ='GMT' mocha --no-colors -R spec \"test/**/*.js\" 2>&1 | tee test-report.log"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",
