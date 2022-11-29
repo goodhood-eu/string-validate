@@ -27,7 +27,7 @@ export const isRequired = (value?: unknown): boolean => {
   }
 };
 
-export const isLength = (value = '', min = 0, max = Infinity): boolean => {
+export const isLength = (value: unknown = '', min = 0, max = Infinity): boolean => {
   if (isEmpty(value)) return false;
   const length = Array.isArray(value) ? value.length : unicodeLength(value);
   return (max >= length) && (length >= min);
