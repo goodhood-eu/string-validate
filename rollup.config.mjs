@@ -9,12 +9,14 @@ export default [
     output: [
       {
         file: 'lib/index.js',
-        format: 'es'
+        format: 'es',
+        sourcemap: true,
       },
       {
         file: 'lib/index.cjs',
         format: 'cjs',
         exports: 'named',
+        sourcemap: true,
       },
     ],
     plugins: [

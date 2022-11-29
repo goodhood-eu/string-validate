@@ -14,11 +14,9 @@
     "moduleResolution": "node",
     "skipLibCheck": true,
     "declaration": true,
-    "outDir": "lib",
     "declarationDir": "lib/types",
-    "paths": {
-      "@/*": ["./*"]
-    }
+    "declarationMap": true,
+    "outDir": "lib",
   },
   "include": ["src/**/*"],
   "exclude": [
