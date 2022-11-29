@@ -1,3 +1,7 @@
+const register = require('@babel/register').default;
+
+register({ extensions: ['.ts', '.tsx', '.js', '.jsx'] });
+
 module.exports = {
   'check-leaks': true,
   recursive: true,
@@ -8,8 +12,5 @@ module.exports = {
     'node_modules/**',
   ],
   extension: ['ts'],
-  spec: [
-    "**/*.test.ts"
-  ],
-  require: 'ts-node/register'
+  spec: '**/*.test.ts',
 };
