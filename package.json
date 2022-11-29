@@ -18,12 +18,13 @@
   "scripts": {
     "build": "NODE_ENV=production rollup -c",
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
-    "check": "npm test && npm run lint && echo \"\\033[0;32mReady to publish\\033[0m\"",
+    "check": "npm test && npm run lint && npm run lint:typescript && echo \"\\033[0;32mReady to publish\\033[0m\"",
     "clean": "rm -rf ./lib/ || exit 1",
     "prepublishOnly": "npm run check && npm run clean && npm run build",
     "lint": "eslint ./",
     "lint:fix": "eslint --fix ./",
     "lint:tofile": "eslint --no-color -o ./eslint-report.log ./",
+    "lint:typescript": "tsc --noEmit",
     "test": "mocha",
     "test:tofile": "npm run build && TZ='GMT' TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha --no-colors -R spec \"test/**/*.js\" 2>&1 | tee test-report.log"
   },
