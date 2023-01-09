@@ -292,7 +292,7 @@ describe('validations', () => {
       {},
       '',
       'hello',
-      function() {},
+      function () {},
     ];
 
     truthy.forEach((value) => {

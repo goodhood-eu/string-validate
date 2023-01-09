@@ -1,8 +1,9 @@
 {
-  "extends": "nebenan",
   "overrides": [
     {
       "files": [
+        "**/*.cjs",
+        "**/*.js",
         "**/*.test.ts"
       ],
       "env": {
@@ -11,6 +12,10 @@
       "rules": {
         "no-unused-expressions": "off"
       },
+      "extends": [
+        "nebenan-base",
+        "airbnb-typescript/base"
+      ],
       "parserOptions": {
         "project": [
           "./tsconfig.eslint.json"
@@ -26,7 +31,8 @@
         "**/*.test.ts"
       ],
       "extends": [
-        "nebenan/typescript"
+        "nebenan-base",
+        "airbnb-typescript/base"
       ],
       "parserOptions": {
         "project": [

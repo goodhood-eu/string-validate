@@ -14,9 +14,10 @@
     "moduleResolution": "node",
     "skipLibCheck": true,
     "declaration": true,
+    "rootDir": "src/",
     "declarationDir": "lib/types",
     "declarationMap": true,
-    "outDir": "lib",
+    "outDir": "lib"
   },
   "include": ["src/**/*"],
   "exclude": [
