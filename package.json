@@ -1,10 +1,11 @@
 {
   "name": "string-validate",
   "description": "Validates strings",
-  "author": "Nebenan.de <max@nebenan.de>",
+  "author": "Good Hood GmbH <tech@nebenan.de>",
   "license": "MIT",
-  "repository": "good-hood-gmbh/string-validate",
-  "bugs": "https://github.com/good-hood-gmbh/string-validate/issues",
+  "repository": "github:goodhood-eu/string-validate",
+  "homepage": "https://github.com/goodhood-eu/string-validate#readme",
+  "bugs": "https://github.com/goodhood-eu/string-validate/issues",
   "version": "3.9.0",
   "files": [
     "lib"
