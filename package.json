@@ -6,7 +6,7 @@
   "repository": "github:goodhood-eu/string-validate",
   "homepage": "https://github.com/goodhood-eu/string-validate#readme",
   "bugs": "https://github.com/goodhood-eu/string-validate/issues",
-  "version": "3.9.0",
+  "version": "3.9.1",
   "files": [
     "lib"
   ],
